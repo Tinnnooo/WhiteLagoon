@@ -55,5 +55,19 @@ namespace WhiteLagoon.Web.Controllers
             }
             return View(villa);
         }
+
+        [HttpPost]
+        public IActionResult Update(Villa villa)
+        {
+            if (ModelState.IsValid && villa.Id > 0)
+            {
+                _db.Villas.Update(villa);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(villa);
+        }
     }
 }
