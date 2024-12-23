@@ -27,6 +27,11 @@ namespace WhiteLagoon.Web.Controllers
         [HttpPost]
         public IActionResult Create(Villa villa)
         {
+            if(villa.Name == villa.Description)
+            {
+                ModelState.AddModelError("", "The description cannot exactly match the name.");
+            }
+
             if (ModelState.IsValid)
             { 
                 _db.Villas.Add(villa);
