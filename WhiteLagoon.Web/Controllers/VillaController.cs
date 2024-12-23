@@ -47,6 +47,8 @@ namespace WhiteLagoon.Web.Controllers
         public IActionResult Update(int villaId)
         {
             Villa? villa = _db.Villas.FirstOrDefault(villa => villa.Id == villaId);
+            //Villa? villa = _db.Villas.Find(villaId);
+            //var VillaList = _db.Villas.Where(villa => villa.Price > 50 && villa.Occupancy > 0);
             if (villa == null)
             {
                 return NotFound();
