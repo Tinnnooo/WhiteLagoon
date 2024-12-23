@@ -29,7 +29,7 @@ namespace WhiteLagoon.Web.Controllers
         {
             if(villa.Name == villa.Description)
             {
-                ModelState.AddModelError("", "The description cannot exactly match the name.");
+                ModelState.AddModelError("Description", "The description cannot exactly match the name.");
             }
 
             if (ModelState.IsValid)
