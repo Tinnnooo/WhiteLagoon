@@ -24,6 +24,7 @@ namespace WhiteLagoon.Web.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Villa villa)
         {
@@ -40,6 +41,16 @@ namespace WhiteLagoon.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            return View(villa);
+        }
+
+        public IActionResult Update(int villaId)
+        {
+            Villa? villa = _db.Villas.FirstOrDefault(villa => villa.Id == villaId);
+            if (villa == null)
+            {
+                return NotFound();
+            }
             return View(villa);
         }
     }
